@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Kimi 社区（本地）</title>
+<script>
+/* 尽早定主题，避免白屏闪烁 */
+(function () {
+  try {
+    var t = localStorage.getItem("theme");
+    if (t !== "light" && t !== "dark") {
+      t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+
+<header id="top">
+  <div class="logo"><a href="#/feed">Kimi <span>社区</span></a></div>
+  <nav id="nav">
+    <a class="tab" href="#/feed"    data-tab="feed">推荐</a>
+    <a class="tab" href="#/mine"    data-tab="mine">关注流</a>
+    <a class="tab" href="#/search"  data-tab="search">搜索</a>
+    <a class="tab" href="#/notify"  data-tab="notify">通知</a>
+    <a class="tab" href="#/me"      data-tab="me">我</a>
+  </nav>
+  <div class="right">
+    <span id="status" title="登录状态">…</span>
+    <a class="tab compose" href="#/compose" title="发动态">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <button id="btnTheme" title="切换深色">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <button id="btnRefresh" title="重新加载">
+      <i class="fa-solid fa-rotate-right"></i>
+    </button>
+  </div>
+</header>
+
+<div id="gate" class="hidden">
+  <div class="gate-box">
+    <h2><i class="fa-solid fa-shield-halved"></i> 先登录一下</h2>
+    <div id="gateStep"></div>
+  </div>
+</div>
+
+<main id="view"></main>
+
+<div id="toast"></div>
+
+<script src="app.js?v=5"></script>
+</body>
+</html>
