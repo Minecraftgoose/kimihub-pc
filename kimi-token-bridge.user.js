@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         Kimi 凭证桥接（给本地发现页用）
+// @name         Kimi 凭证桥接
 // @namespace    kimi-web-discover
 // @version      1.0
 // @description  在 kimi.com 登录后，把登录凭证送到你本机的发现页服务。只发到 127.0.0.1，不外传。
-// @author       You
+// @author       Minecraft_goose
 // @match        https://www.kimi.com/*
 // @match        https://kimi.moonshot.cn/*
 // @match        https://auth.kimi.com/*
@@ -16,19 +16,6 @@
 // @grant        GM_addStyle
 // @run-at       document-start
 // ==/UserScript==
-
-/**
- * 做什么：
- *   你在 kimi.com 正常登录 → 这个脚本把你自己的登录凭证
- *   送到本机跑的发现页服务（127.0.0.1:8787）→ 发现页就能用了。
- *
- * 不做什么：
- *   · 只发往 127.0.0.1（你自己的机器），绝不发到别的地址
- *   · 不发密码、不发短信验证码，只转发已有的登录凭证
- *   · 不改你 Kimi 页面上任何内容
- *
- * 想确认它干了什么：看脚本源码，就这 200 行。
- */
 
 (function () {
     'use strict';
